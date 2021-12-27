@@ -1,5 +1,6 @@
 const { Client, Intents } = require("discord.js");
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]});
+const { token } = require("./config.json");
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 client.once("ready", () => {
 	console.log("MusicBot is online!");
@@ -9,7 +10,12 @@ client.once("ready", () => {
 TODOS:
 * read docs for start
 * make a clear messages command
-- pull token from gitignored file
+* pull token from gitignored file
+* linter
+- get mvp of sounds working
+- investigate buttons (try to make command bar for pause/play, skip, etc)
+- convert commands to registered slash commands
+- separate out commands into their own files
 */
 
 client.on("messageCreate", async message => {
@@ -24,4 +30,4 @@ client.on("messageCreate", async message => {
 	}
 });
 
-client.login("TOKEN GOES HERE");
+client.login(token);
